@@ -1,0 +1,4 @@
+arquillianExample
+=================
+
+Arquillian project example.
