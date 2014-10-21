@@ -2,10 +2,7 @@ package grupo.estudo.tiago.dado.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,68 +10,62 @@ import javax.persistence.Table;
 @Table(name = "cd")
 public class CD implements Serializable {
 
-	private static final long serialVersionUID = -7796408764199831624L;
+    private static final long serialVersionUID = -7796408764199831624L;
 
-	@Id
-	private Long id;
+    @Id
+    private Long id;
+    private String titulo;
+    private String artista;
+    private String genero;
+    private Integer estoque;
+    private Double valor;
 
-	@Column(name = "titulo")
-	private String titulo;
+    public Long getId() {
+        return id;
+    }
 
-	@Column(name = "artista")
-	private String artista;
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	@Column(name = "genero")
-	private String genero;
+    public String getTitulo() {
+        return titulo;
+    }
 
-	@Column(name = "status")
-	@Enumerated(EnumType.STRING)
-	private StatusCD status;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public String getArtista() {
+        return artista;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setArtista(String artista) {
+        this.artista = artista;
+    }
 
-	public String getTitulo() {
-		return titulo;
-	}
+    public String getGenero() {
+        return genero;
+    }
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
 
-	public String getArtista() {
-		return artista;
-	}
+    public Integer getEstoque() {
+        return estoque;
+    }
 
-	public void setArtista(String artista) {
-		this.artista = artista;
-	}
+    public void setEstoque(Integer estoque) {
+        this.estoque = estoque;
+    }
 
-	public String getGenero() {
-		return genero;
-	}
+    public Double getValor() {
+        return valor;
+    }
 
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
-
-	public StatusCD getStatus() {
-		return status;
-	}
-
-	public void setStatus(StatusCD status) {
-		this.status = status;
-	}
-
-	@Override
-	public String toString() {
-		return "CD [id=" + id + ", titulo=" + titulo + ", artista=" + artista
-				+ ", genero=" + genero + "]";
-	}
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
 
 }

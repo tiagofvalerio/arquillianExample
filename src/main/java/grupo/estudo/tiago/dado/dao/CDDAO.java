@@ -4,12 +4,12 @@ import grupo.estudo.tiago.dado.entity.CD;
 
 import java.util.List;
 
-public interface CDDao {
+public interface CDDAO {
 	void save(CD cd);
 
 	void update(CD cd);
 
-	CD findById(CD cd);
+	CD findById(Long id);
 
 	void delete(CD cd);
 
