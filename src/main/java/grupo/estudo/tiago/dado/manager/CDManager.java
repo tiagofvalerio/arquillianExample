@@ -8,21 +8,23 @@ import grupo.estudo.tiago.dado.entity.Pedido;
 
 public interface CDManager {
 
-    void save(CD cd);
+	void save(CD cd);
 
-    void update(CD cd);
+	void update(CD cd);
 
-    CD findById(Long id);
+	CD findById(Long id);
 
-    void delete(CD cd);
+	void delete(CD cd);
 
-    List<CD> findAllByNome(String titulo);
+	List<CD> findAllByNome(String titulo);
 
-    CD findByNome(String titulo);
+	CD findByNome(String titulo);
 
-    List<CD> findAllByArtist(String nome);
+	List<CD> findAllByArtist(String nome);
 
-    void comprarCD(Compra compra);
+	void comprarCD(Compra compra);
 
-    void venderCD(Pedido pedido);
+	void venderCD(Pedido pedido) throws Exception;
+
+	Pedido findLastPedido();
 }

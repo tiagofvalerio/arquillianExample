@@ -1,6 +1,7 @@
 package grupo.estudo.tiago.dado.dao;
 
 import grupo.estudo.tiago.dado.entity.CD;
+import grupo.estudo.tiago.dado.entity.Pedido;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface CDDAO {
 	List<CD> findAllByNome(String titulo);
 	
 	List<CD> findAllByArtist(String nome);
+	
+	Pedido findLastPedido();
 }

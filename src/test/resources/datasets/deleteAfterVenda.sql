@@ -1,0 +1,1 @@
+delete from pedido_venda;

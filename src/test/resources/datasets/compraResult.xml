@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
 <cd id="1" titulo="GARRAFA" artista="EH O TCHAN" genero="AXE" estoque="1" valor="11.00" />
-<cd id="2" titulo="LADO A LADO B" artista="O RAPPA" genero="ROCK" estoque="2" valor="14.50" />
+<cd id="2" titulo="LADO A LADO B" artista="O RAPPA" genero="ROCK" estoque="7" valor="14.50" />
 <cd id="3" titulo="ALGUM" artista="U2" genero="ROCK" estoque="6" valor="21.90" />
 <cd id="4" titulo="AS MELHORES" artista="EXALTASAMBA" genero="PAGODE" estoque="4" valor="15.00" />
 <cd id="5" titulo="MEU REINO ENCANTADO" artista="DANIEL" genero="SERTANEJO" estoque="3" valor="16.00" />

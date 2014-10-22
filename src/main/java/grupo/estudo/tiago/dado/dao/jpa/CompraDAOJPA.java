@@ -6,15 +6,15 @@ import grupo.estudo.tiago.dado.entity.Compra;
 import java.io.Serializable;
 
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @Stateless
 public class CompraDAOJPA implements CompraDAO, Serializable {
 
     private static final long serialVersionUID = 5710334858991440849L;
 
-    @Inject
+    @PersistenceContext(name="test")
     private EntityManager em;
 
     @Override

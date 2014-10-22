@@ -3,6 +3,8 @@ package grupo.estudo.tiago.dado.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -11,36 +13,43 @@ import javax.persistence.Table;
 @Table(name = "venda")
 public class Venda implements Serializable {
 
-    private static final long serialVersionUID = -3067734056300592541L;
+	private static final long serialVersionUID = -3067734056300592541L;
 
-    @Id
-    private Long id;
-    @OneToOne
-    private CD cd;
-    private Integer quantidadeVenda;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@OneToOne
+	private CD cd;
+	private Integer quantidadeVenda;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public CD getCd() {
-        return cd;
-    }
+	public CD getCd() {
+		return cd;
+	}
 
-    public void setCd(CD cd) {
-        this.cd = cd;
-    }
+	public void setCd(CD cd) {
+		this.cd = cd;
+	}
 
-    public Integer getQuantidadeVenda() {
-        return quantidadeVenda;
-    }
+	public Integer getQuantidadeVenda() {
+		return quantidadeVenda;
+	}
 
-    public void setQuantidadeVenda(Integer quantidadeVenda) {
-        this.quantidadeVenda = quantidadeVenda;
-    }
+	public void setQuantidadeVenda(Integer quantidadeVenda) {
+		this.quantidadeVenda = quantidadeVenda;
+	}
+
+	@Override
+	public String toString() {
+		return "Venda [id=" + id + ", cd=" + cd + ", quantidadeVenda="
+				+ quantidadeVenda + "]";
+	}
 
 }
