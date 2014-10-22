@@ -53,7 +53,6 @@ public class LojaTest {
 	@Test
 	@UsingDataSet("datasets/cds.xml")
 	@ShouldMatchDataSet(value = "datasets/compraResult.xml", excludeColumns = { "id" })
-	// @ApplyScriptBefore("datasets/deleteBefore.sql")
 	public void comprarTest() {
 
 		try {
@@ -79,7 +78,6 @@ public class LojaTest {
 	@Test
 	@UsingDataSet("datasets/cds.xml")
 	@ShouldMatchDataSet(value = "datasets/vendaResult.xml", excludeColumns = { "id" })
-	// @ApplyScriptBefore("datasets/deleteBefore.sql")
 	@ApplyScriptAfter("datasets/deleteAfterVenda.sql")
 	public void venderTest() {
 
@@ -105,7 +103,6 @@ public class LojaTest {
 
 	@Test
 	@UsingDataSet("datasets/cds.xml")
-	// @ApplyScriptBefore("datasets/deleteBefore.sql")
 	public void buscarPorTituloTest() {
 
 		try {
@@ -127,7 +124,6 @@ public class LojaTest {
 
 	@Test
 	@UsingDataSet("datasets/cds.xml")
-	// @ApplyScriptBefore("datasets/deleteBefore.sql")
 	public void buscarTodosPorArtistaTest() {
 
 		try {
