@@ -71,6 +71,7 @@ public class LojaTest {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			Assert.fail(e.getMessage());
 		}
 
 	}
@@ -80,23 +81,23 @@ public class LojaTest {
 	@ShouldMatchDataSet(value = "datasets/vendaResult.xml", excludeColumns = { "id" })
 	@ApplyScriptAfter("datasets/deleteAfterVenda.sql")
 	public void venderTest() {
-
-		CD cd;
-
-		cd = cdManager.findById(3l);
-
-		Venda venda = new Venda();
-		venda.setCd(cd);
-		venda.setQuantidadeVenda(1);
-
-		Pedido pedido = new Pedido();
-		pedido.getVendas().add(venda);
-		pedido.setMeioPagamento(MeioPagamento.PARCELADO);
-
 		try {
+			CD cd;
+
+			cd = cdManager.findById(3l);
+
+			Venda venda = new Venda();
+			venda.setCd(cd);
+			venda.setQuantidadeVenda(1);
+
+			Pedido pedido = new Pedido();
+			pedido.getVendas().add(venda);
+			pedido.setMeioPagamento(MeioPagamento.PARCELADO);
+
 			cdManager.venderCD(pedido);
 		} catch (Exception e) {
 			e.printStackTrace();
+			Assert.fail(e.getMessage());
 		}
 
 	}
@@ -118,6 +119,7 @@ public class LojaTest {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			Assert.fail(e.getMessage());
 		}
 
 	}
@@ -139,6 +141,7 @@ public class LojaTest {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			Assert.fail(e.getMessage());
 		}
 
 	}
@@ -147,20 +150,19 @@ public class LojaTest {
 	@UsingDataSet("datasets/cds.xml")
 	@ApplyScriptAfter("datasets/deleteAfterVenda.sql")
 	public void descontoTest() {
-
-		CD cd;
-
-		cd = cdManager.findById(4l);
-
-		Venda venda = new Venda();
-		venda.setCd(cd);
-		venda.setQuantidadeVenda(1);
-
-		Pedido pedido = new Pedido();
-		pedido.getVendas().add(venda);
-		pedido.setMeioPagamento(MeioPagamento.AVISTA);
-
 		try {
+			CD cd;
+
+			cd = cdManager.findById(4l);
+
+			Venda venda = new Venda();
+			venda.setCd(cd);
+			venda.setQuantidadeVenda(1);
+
+			Pedido pedido = new Pedido();
+			pedido.getVendas().add(venda);
+			pedido.setMeioPagamento(MeioPagamento.AVISTA);
+
 			cdManager.venderCD(pedido);
 			Pedido pedidoSalvo = cdManager.findLastPedido();
 			System.out.println(pedidoSalvo);
@@ -168,6 +170,7 @@ public class LojaTest {
 			Assert.assertTrue(pedidoSalvo.getDesconto() > 0D);
 		} catch (Exception e) {
 			e.printStackTrace();
+			Assert.fail(e.getMessage());
 		}
 
 	}

@@ -5,7 +5,6 @@ import grupo.estudo.tiago.dado.entity.CD;
 import grupo.estudo.tiago.dado.entity.Pedido;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -23,41 +22,44 @@ public class CDDAOJPA implements CDDAO, Serializable {
 	@PersistenceContext(name = "test")
 	private EntityManager em;
 
-	public void save(CD cd) {
+	public void save(CD cd) throws Exception {
 		try {
 			em.persist(cd);
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new Exception(e);
 		}
 
 	}
 
-	public void update(CD cd) {
+	public void update(CD cd) throws Exception {
 		try {
 			em.merge(cd);
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new Exception(e);
 		}
 	}
 
-	public CD findById(Long id) {
+	public CD findById(Long id) throws Exception {
 		try {
 			return em.find(CD.class, id);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			throw new Exception(e);
 		}
 	}
 
-	public void delete(CD cd) {
+	public void delete(CD cd) throws Exception {
 		try {
 			em.remove(cd);
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new Exception(e);
 		}
 	}
 
-	public List<CD> findAllByNome(String titulo) {
+	public List<CD> findAllByNome(String titulo) throws Exception {
 		try {
 			CriteriaBuilder builder = em.getCriteriaBuilder();
 			CriteriaQuery<CD> query = builder.createQuery(CD.class);
@@ -70,11 +72,11 @@ public class CDDAOJPA implements CDDAO, Serializable {
 			return em.createQuery(query).getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new ArrayList<CD>();
+			throw new Exception(e);
 		}
 	}
 
-	public CD findByNome(String titulo) {
+	public CD findByNome(String titulo) throws Exception {
 		try {
 			CriteriaBuilder builder = em.getCriteriaBuilder();
 			CriteriaQuery<CD> query = builder.createQuery(CD.class);
@@ -85,11 +87,11 @@ public class CDDAOJPA implements CDDAO, Serializable {
 			return em.createQuery(query).getSingleResult();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			throw new Exception(e);
 		}
 	}
 
-	public List<CD> findAllByArtist(String nome) {
+	public List<CD> findAllByArtist(String nome) throws Exception {
 		try {
 			CriteriaBuilder builder = em.getCriteriaBuilder();
 			CriteriaQuery<CD> query = builder.createQuery(CD.class);
@@ -100,11 +102,11 @@ public class CDDAOJPA implements CDDAO, Serializable {
 			return em.createQuery(query).getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new ArrayList<CD>();
+			throw new Exception(e);
 		}
 	}
 
-	public Pedido findLastPedido() {
+	public Pedido findLastPedido() throws Exception {
 		try {
 			CriteriaBuilder builder = em.getCriteriaBuilder();
 			CriteriaQuery<Pedido> query = builder.createQuery(Pedido.class);
@@ -114,7 +116,7 @@ public class CDDAOJPA implements CDDAO, Serializable {
 			return em.createQuery(query).setMaxResults(1).getSingleResult();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			throw new Exception(e);
 		}
 	}
 }

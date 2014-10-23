@@ -6,19 +6,19 @@ import grupo.estudo.tiago.dado.entity.Pedido;
 import java.util.List;
 
 public interface CDDAO {
-	void save(CD cd);
+	void save(CD cd) throws Exception;
 
-	void update(CD cd);
+	void update(CD cd) throws Exception;
 
-	CD findById(Long id);
+	CD findById(Long id) throws Exception;
 
-	void delete(CD cd);
+	void delete(CD cd) throws Exception;
 
-	CD findByNome(String titulo);
+	CD findByNome(String titulo) throws Exception;
 
-	List<CD> findAllByNome(String titulo);
-	
-	List<CD> findAllByArtist(String nome);
-	
-	Pedido findLastPedido();
+	List<CD> findAllByNome(String titulo) throws Exception;
+
+	List<CD> findAllByArtist(String nome) throws Exception;
+
+	Pedido findLastPedido() throws Exception;
 }

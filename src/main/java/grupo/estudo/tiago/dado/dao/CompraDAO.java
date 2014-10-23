@@ -4,10 +4,10 @@ import grupo.estudo.tiago.dado.entity.Compra;
 
 public interface CompraDAO {
 
-    void save(Compra compra);
+    void save(Compra compra) throws Exception;
 
-    void update(Compra compra);
+    void update(Compra compra) throws Exception;
 
-    Compra findById(Long id);
+    Compra findById(Long id) throws Exception;
 
 }

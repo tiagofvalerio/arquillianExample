@@ -12,38 +12,40 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class PedidoDAOJPA implements PedidoDAO, Serializable {
 
-    private static final long serialVersionUID = 5710334858991440849L;
+	private static final long serialVersionUID = 5710334858991440849L;
 
-    @PersistenceContext(name="test")
-    private EntityManager em;
+	@PersistenceContext(name = "test")
+	private EntityManager em;
 
-    @Override
-    public void save(Pedido pedido) {
-        try {
-            em.persist(pedido);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+	@Override
+	public void save(Pedido pedido) throws Exception {
+		try {
+			em.persist(pedido);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception(e);
+		}
 
-    }
+	}
 
-    @Override
-    public void update(Pedido pedido) {
-        try {
-            em.merge(pedido);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	@Override
+	public void update(Pedido pedido) throws Exception {
+		try {
+			em.merge(pedido);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+	}
 
-    @Override
-    public Pedido findById(Long id) {
-        try {
-            return em.find(Pedido.class, id);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+	@Override
+	public Pedido findById(Long id) throws Exception {
+		try {
+			return em.find(Pedido.class, id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+	}
 
 }

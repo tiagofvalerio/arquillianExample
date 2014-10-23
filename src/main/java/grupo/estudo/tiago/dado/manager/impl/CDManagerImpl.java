@@ -29,24 +29,24 @@ public class CDManagerImpl implements CDManager, Serializable {
 	@Inject
 	private PedidoDAO pedidoDAO;
 
-	public void save(CD cd) {
+	public void save(CD cd) throws Exception {
 		cdDao.save(cd);
 	}
 
-	public void update(CD cd) {
+	public void update(CD cd) throws Exception {
 		cdDao.update(cd);
 	}
 
-	public CD findById(Long id) {
+	public CD findById(Long id) throws Exception {
 		return cdDao.findById(id);
 	}
 
-	public void delete(CD cd) {
+	public void delete(CD cd) throws Exception {
 		cdDao.delete(cd);
 	}
 
 	@Override
-	public void comprarCD(Compra compra) {
+	public void comprarCD(Compra compra) throws Exception {
 		compra.setDataCompra(new Date());
 		Integer estoque = compra.getCd().getEstoque()
 				+ compra.getQuantidadeCompra();
@@ -73,19 +73,19 @@ public class CDManagerImpl implements CDManager, Serializable {
 		pedidoDAO.save(pedido);
 	}
 
-	public CD findByNome(String titulo) {
+	public CD findByNome(String titulo) throws Exception {
 		return cdDao.findByNome(titulo);
 	}
 
-	public List<CD> findAllByNome(String titulo) {
+	public List<CD> findAllByNome(String titulo) throws Exception {
 		return cdDao.findAllByNome(titulo);
 	}
 
-	public List<CD> findAllByArtist(String nome) {
+	public List<CD> findAllByArtist(String nome) throws Exception {
 		return cdDao.findAllByArtist(nome);
 	}
-	
-	public Pedido findLastPedido() {
+
+	public Pedido findLastPedido() throws Exception {
 		return cdDao.findLastPedido();
 	}
 
